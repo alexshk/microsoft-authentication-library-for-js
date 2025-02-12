@@ -52,15 +52,19 @@ resources:
           type: git
           name: IDDP/msal-javascript-1p
           ref: enable-multi-tab-test
+        - repository: 3P
+          type: github
+          name: AzureAD/microsoft-authentication-library-for-js
+          endpoint: microsoft
 extends:
     template: v2/OneBranch.NonOfficial.CrossPlat.yml@templates # https://aka.ms/obpipelines/templates
     parameters:
         globalSdl:
+            perStage:
+              sdl_sources:
+                checkout_all_repos: true
             policheck:
                 break: true
-
-        featureFlags:
-          WindowsHostVersion: 1ESWindows2022
 
         stages:
             - stage: E2E
