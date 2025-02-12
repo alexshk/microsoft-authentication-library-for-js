@@ -62,6 +62,9 @@ extends:
             policheck:
                 break: true
 
+        featureFlags:
+          WindowsHostVersion: 1ESWindows2022
+
         stages:
             - stage: E2E
               displayName: "3P E2E Tests"
